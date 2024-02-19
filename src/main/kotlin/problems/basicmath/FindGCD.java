@@ -3,20 +3,18 @@ package problems.basicmath;
 public class FindGCD {
 
     public static void main(String[] args) {
-        System.out.println(gcdR(13,1));
+        System.out.println(gcd(24,72));
     }
 
     public static int gcd(int A , int B)
     {
-        int n = Math.min(A, B);
-        int gcd = 1;
-        for (int i = n; i >= 1; i--) {
-            if ((A % i == 0) && (B % i == 0)) {
-                gcd = i;
-                break;
-            }
+        if (A == B) {
+            return A;
+        } else if (A < B) {
+            return gcd(A,B-A);
+        } else {
+            return gcd(A-B,B);
         }
-        return gcd;
     }
 
     public static int gcdR(int a, int b) {

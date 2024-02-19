@@ -8,7 +8,7 @@ public class MissingNumberInArray {
 
 
     static int missingNumberApproach2() {
-
+        return -1;
     }
 
     static int missingNumber(int array[], int n) {

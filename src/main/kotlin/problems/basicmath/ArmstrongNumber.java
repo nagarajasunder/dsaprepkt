@@ -22,7 +22,7 @@ public class ArmstrongNumber {
     }
 
     public static void main(String[] args) {
-        System.out.println(armstrongNumber(152));
+        System.out.println(armstrongNumber(153));
     }
 
 }
