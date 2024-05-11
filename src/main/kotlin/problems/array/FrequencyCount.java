@@ -3,13 +3,16 @@ package problems.array;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class FrequencyCount {
 
     public static void frequencyCount(int arr[], int N, int P)
     {
+
         Map<Integer,Integer> map = new HashMap<>();
 
+        int[] k = new int[]{1,2};
         for (int i : arr) {
             int value = map.getOrDefault(i,0);
             map.put(i,value+1);

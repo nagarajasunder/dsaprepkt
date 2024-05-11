@@ -5,20 +5,16 @@ import java.util.Arrays;
 public class RemoveDuplicatesFromSortedArray {
 
     public static int removeDuplicates(int[] nums) {
-        int i = 0;
-        int j = 1;
-        int n = nums.length;
+        int uniqueIdx = 0;
 
-        while (j <  n) {
-            if (nums[i] == nums[j]) {
-                j++;
-            } else {
-                nums[i+1] = nums[j];
-                i++;
-                j++;
+        for (int i = 1; i < nums.length;i++) {
+            if (nums[i] != nums[uniqueIdx]) {
+                nums[uniqueIdx+1] = nums[i];
+                uniqueIdx+=1;
             }
         }
-        return i+1;
+
+        return uniqueIdx+1;
     }
 
     public static void main(String[] args) {

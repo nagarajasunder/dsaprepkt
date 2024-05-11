@@ -5,7 +5,32 @@ import java.util.Map;
 
 public class LengthOfLongestSubarrayWithSumk {
 
-    public static int lenOfLongSubarrOptimal (int A[], int N, int k) {
+    public static int lenOfLongSubArrOptimal(int A[], int N, int k) {
+        int maxLen = 0;
+        long sum = A[0];
+        int i = 0;
+        int j = 0;
+        int n = A.length;
+
+        while(i < n && j < n) {
+
+            while (i <= j && sum > k) {
+                sum-=A[i];
+                i++;
+            }
+            if(sum == k) {
+                maxLen = Math.max(maxLen,j-i+1);
+            }
+            j++;
+            if(j < n) {
+                sum+=A[j];
+            }
+        }
+
+        return maxLen;
+    }
+
+    public static int lenOfLongSubArrBest(int A[], int N, int k) {
 
         int maxLen = 0;
         Map<Integer,Integer> map = new HashMap<>();
@@ -19,9 +44,10 @@ public class LengthOfLongestSubarrayWithSumk {
             if (map.containsKey(rem)) {
                 maxLen = Math.max(maxLen,i-map.get(rem));
             }
-            if (!map.containsKey(sum)) {
-                map.put(sum,i);
-            }
+            map.put(sum,i);
+//            if (map.containsKey(sum)) {
+//                map.put(sum,i);
+//            }
         }
         return maxLen;
     }
@@ -43,9 +69,9 @@ public class LengthOfLongestSubarrayWithSumk {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1,2,1,2,1};
+        int[] arr = new int[]{1, 2,1,2,1};
         int k = 3;
-        System.out.println(lenOfLongSubarrOptimal(arr, arr.length, k));
+        System.out.println(lenOfLongSubArrOptimal(arr, arr.length, k));
     }
 
 }
