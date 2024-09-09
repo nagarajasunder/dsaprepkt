@@ -3,31 +3,6 @@ package problems.array.slidingwindow
 import kotlin.math.max
 
 //https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
-
-fun lengthOfLongestSubstring(s: String): Int {
-
-    var longestSubStr = 0
-    val map = hashMapOf<Char,Int>()
-    var left = 0
-    var right = 0
-
-    while (right < s.length) {
-        if (map.containsKey(s[right])) {
-            left++
-            right = left
-            map.clear()
-        }
-        map[s[right]] = right
-        right++
-
-        if ((right-left) > longestSubStr) {
-            longestSubStr = right - left
-        }
-    }
-
-    return longestSubStr
-}
-
 fun lengthOfLongestSubstringOptimized(s:String):Int {
 
     var maxLen = 0
@@ -54,5 +29,5 @@ fun lengthOfLongestSubstringOptimized(s:String):Int {
 }
 
 fun main () {
-    println(lengthOfLongestSubstringOptimized("abcazybb"))
+    println(lengthOfLongestSubstringOptimized("abcabcbb"))
 }

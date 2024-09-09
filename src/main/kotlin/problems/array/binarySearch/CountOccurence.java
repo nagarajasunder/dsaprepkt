@@ -3,17 +3,14 @@ package problems.array.binarySearch;
 public class CountOccurence {
 
     public static void main(String[] args) {
-        int[] arr = new int[5];
-        System.out.println(count(arr,arr.length,3));
+        int[] arr = new int[]{1, 1, 2, 2, 2, 2, 3};
+        System.out.println(count(arr,arr.length,2));
     }
 
     public static int count(int arr[], int n, int x) {
         int firstOccurence = firstOccurence(arr,n,x);
         int lastOccurence = lastOccurence(arr,n,x);
-
-        System.out.println(firstOccurence);
-        System.out.println(lastOccurence);
-
+        
         return (lastOccurence-firstOccurence)+1;
     }
 

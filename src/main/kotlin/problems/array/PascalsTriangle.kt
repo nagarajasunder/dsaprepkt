@@ -1,5 +1,35 @@
 package problems.array
 
+fun generate2(numRows: Int): List<List<Int>> {
+
+
+
+    val result = mutableListOf(mutableListOf(1))
+
+    if(numRows == 1) {
+        return result
+    }
+
+    for (i in 1 ..< numRows) {
+
+        var j = 0
+        val currentList = mutableListOf(1)
+        val previousRowLen = result[i-1].size
+
+        while(j < previousRowLen) {
+
+            if(j+1 < previousRowLen) {
+                currentList.add(result[i-1][j]+result[i-1][j+1])
+            }
+            j++
+        }
+
+        currentList.add(1)
+        result.add(currentList)
+    }
+
+    return result
+}
 
 fun generate(numRows: Int): List<List<Int>> {
 
@@ -28,5 +58,5 @@ fun generate(numRows: Int): List<List<Int>> {
 }
 
 fun main() {
-    println(generate(6))
+    println(generate2(4))
 }

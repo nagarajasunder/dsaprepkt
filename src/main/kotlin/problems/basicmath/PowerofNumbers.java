@@ -3,8 +3,7 @@ package problems.basicmath;
 public class PowerofNumbers {
 
     public static void main(String[] args) {
-        System.out.println(power(2,10));
-        System.out.println(powerR(2,10));
+        System.out.println(powerR(2,-2));
     }
 
     static long power(int X,int N)

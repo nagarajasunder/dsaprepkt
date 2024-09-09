@@ -44,10 +44,9 @@ public class LengthOfLongestSubarrayWithSumk {
             if (map.containsKey(rem)) {
                 maxLen = Math.max(maxLen,i-map.get(rem));
             }
-            map.put(sum,i);
-//            if (map.containsKey(sum)) {
-//                map.put(sum,i);
-//            }
+            if (!map.containsKey(sum)) {
+                map.put(sum,i);
+            }
         }
         return maxLen;
     }
@@ -69,9 +68,9 @@ public class LengthOfLongestSubarrayWithSumk {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 2,1,2,1};
-        int k = 3;
-        System.out.println(lenOfLongSubArrOptimal(arr, arr.length, k));
+        int[] arr = new int[]{1, 2,1,0,1};
+        int k = 4;
+        System.out.println(lenOfLongSubArrBest(arr, arr.length, k));
     }
 
 }

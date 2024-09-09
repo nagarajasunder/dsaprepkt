@@ -80,4 +80,8 @@ class MergeSortAlgo {
             merge(arr,s,m,e);
         }
     }
+
+    void withoutRecursion(int[] arr) {
+
+    }
 }
